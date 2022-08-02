@@ -15,23 +15,13 @@ class FoodsController < ApplicationController
       if food.save
         redirect_to user_foods_path(params[:user_id])
       else  
-        redirect_to new_user_food_path(params[:user_id])
+        redirect_to new_user_food_path
       end  
     end
 
     def destroy
-      #@food = Food.find_by(id: params[:id])
-      #  puts '================='
-      #  puts params[:id]
-      #  puts '================='      
-      #@food.destroy
-      #flash[:success] = 'Food deleted'
-      #redirect_to user_foods_path
-      @food = Food.find_by(id: params[:id])
-        puts '$$$$$$$$$$$$$$$$#@!'
-        puts params[:id]
-        puts '$$$$$$$$$$$$$$$$#@!'
-      redirect_to user_foods_path(params[:id])
+      @food = Food.find(params[:id]).destroy
+      redirect_to user_foods_path(params[:user_id])
     end
 
     private
