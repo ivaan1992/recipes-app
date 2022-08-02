@@ -1,0 +1,19 @@
+<h1>New section</h1>
+
+<%= form_with model: @food, url: user_foods_path do |f| %> 
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :measurement_unit %>
+    <%= f.text_field :measurement_unit %>
+
+    <%= f.label :price %>
+    $<%= f.number_field :price %>
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+
+    <%= f.submit 'Add' %>
+  </div>
+<% end %>  
