@@ -1,0 +1,16 @@
+<h1><%= @recipe.name %></h1>
+
+<div>
+  <%= @recipe.preparation_time %>h
+</div>
+<div>
+  is it public? <%= @recipe.public %>
+</div>
+<div>
+<%= @recipe.cooking_time %>h
+</div>
+<%= @recipe.description %>
+
+<div>
+  <%= link_to 'Add Food', user_recipe_lists_path(@recipe.user_id, @recipe.id) %>
+</div>

@@ -1,0 +1,17 @@
+<h1>Recipes list</h1>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <div>
+      <div><%= recipe.name %></div>
+      <%= button_to 'Delete', user_recipe_path(@user, recipe), method: :delete %>
+      <p><%= recipe.description %></p>
+      <%= link_to 'show Recipe', user_recipe_path(@user, recipe) %>
+    <div>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Recipe', new_user_recipe_path(@user) %>
+
+
