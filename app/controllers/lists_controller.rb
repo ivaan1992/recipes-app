@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-
   def new
     @foods = Food.all
     @recipe_food = RecipeFood.new
@@ -19,7 +18,7 @@ class ListsController < ApplicationController
   def destroy
     @recipe_food = RecipeFood.find(params[:id]).destroy
     redirect_to user_recipe_path(params[:user_id], params[:recipe_id])
-  end 
+  end
 
   private
 
