@@ -12,5 +12,29 @@
 <%= @recipe.description %>
 
 <div>
-  <%= link_to 'Add Food', user_recipe_lists_path(@recipe.user_id, @recipe.id) %>
+  <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id) %>
 </div>
+
+ <br />
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_food.each do |rec| %>
+      <tr>
+        <td><%= rec.food.name %></td>
+        <td><%= rec.quantity %></td>
+        <td><%= rec.food.price %></td>
+        <td><%= rec.id %></td>
+        <td><%= button_to 'Delete', user_recipe_list_path(@recipe.user_id, @recipe.id, rec.id), method: :delete %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
