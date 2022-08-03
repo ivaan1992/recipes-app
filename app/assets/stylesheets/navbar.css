@@ -1,0 +1,14 @@
+.navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #08f;
+}
+
+.access {
+  text-decoration: none;
+  margin: 10px;
+  font-size: 25px;
+  color: #fff;
+}
