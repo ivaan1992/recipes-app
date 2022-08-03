@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-user1 = User.create(name: 'Ivan')
+user1 = User.create(name: 'Ivan', email: 'test@test.com', password: 'password', password_confirmation: 'password')
 
 #food
 Food.create(name: 'Apple', measurement_unit: 'units', price: '10', quantity: '10', user_id: user1.id )
