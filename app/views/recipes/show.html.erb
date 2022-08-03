@@ -16,10 +16,25 @@
 </div>
 
  <br />
-<% @recipe_food.each do |rec| %>
-  <div>Quantity: <%= rec.quantity %></div>
-  <div>Name: <%= rec.food.name %></div>
-  <div>Price: <%= rec.food.price %></div>
-  <div>Delete</div>
-  <br />
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_food.each do |rec| %>
+      <tr>
+        <td><%= rec.food.name %></td>
+        <td><%= rec.quantity %></td>
+        <td><%= rec.food.price %></td>
+        <td><%= rec.id %></td>
+        <td><%= button_to 'Delete', user_recipe_list_path(@recipe.user_id, @recipe.id, rec.id), method: :delete %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
