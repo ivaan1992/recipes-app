@@ -1,0 +1,27 @@
+<h1>Food section</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <%= form_with model: @recipe_food, url: user_recipe_lists_path do |f| %> 
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td><%= f.number_field :quantity %></td>
+          <%= f.hidden_field :food_id, value: food.id %>
+          <td><%= f.submit 'Add' %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table> 

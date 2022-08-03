@@ -12,5 +12,14 @@
 <%= @recipe.description %>
 
 <div>
-  <%= link_to 'Add Food', user_recipe_lists_path(@recipe.user_id, @recipe.id) %>
+  <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id) %>
 </div>
+
+ <br />
+<% @recipe_food.each do |rec| %>
+  <div>Quantity: <%= rec.quantity %></div>
+  <div>Name: <%= rec.food.name %></div>
+  <div>Price: <%= rec.food.price %></div>
+  <div>Delete</div>
+  <br />
+<% end %>
