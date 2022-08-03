@@ -15,13 +15,17 @@
   <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id) %>
 </div>
 
+<div>
+  <%= link_to 'Generate shopping list',  user_recipe_shops_path(@recipe.user_id, @recipe.id) %>
+</div>
+
  <br />
 <table>
   <thead>
     <tr>
       <th>Food</th>
       <th>Quantity</th>
-      <th>Value</th>
+      <th>Value $</th>
       <th>ID</th>
       <th>Actions</th>
     </tr>
