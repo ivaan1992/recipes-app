@@ -17,7 +17,7 @@
         <h4><%= food.price %></h4>
         <h4><%= f.number_field :quantity %></h4>
         <%= f.hidden_field :food_id, value: food.id %>
-        <h4><%= f.submit 'Add' %></h4>
+        <h4><%= f.submit 'Add', class: 'delete' %></h4>
       </div>
     <% end %>
   <% end %>
