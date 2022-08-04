@@ -1,5 +1,16 @@
 <h1>Public stuff</h1>
 
+
 <% @public.each do |recipe| %>
-  <div><%= recipe.name %></div>
+  <% @result = 0 %>
+    <h2><%= recipe.name %></h2>
+    <h5>Created By: <%= recipe.user.email %></h5>
+    <% @total_data = @recipe_food.where(recipe_id: recipe.id) %>
+    <h4>Total Food Items: <%= @total_data.count %></h4>
+
+  <% @total_data.each do |value| %>
+    <% @total = @food.where(id: value.food_id).first %>
+    <% @result += @total.price %>
+  <% end %> 
+    <p>Total Price: <%= @result %></p>
 <% end %>
