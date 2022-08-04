@@ -1,30 +1,39 @@
 <h1><%= @recipe.name %></h1>
 
-<div>
-  <%= @recipe.preparation_time %>h
-</div>
-<div>
-  is it public? <%= @recipe.public %>
-</div>
-<div>
-<%= @recipe.cooking_time %>h
-</div>
-<%= @recipe.description %>
-
-<% if current_user.id == @recipe.user_id %>
-  <div>
-    <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id) %>
+<div class="recipe_info">
+  <div class='preparation'>
+    <div class='time'>
+      <div>
+        Preparation Time: <%= @recipe.preparation_time %>h
+      </div>
+      <div>
+        Cooking Time: <%= @recipe.cooking_time %>h
+      </div>
+      <div>
+        Steps:
+        <p><%= @recipe.description %></p>
+      </div>
+    </div>
+    <div>
+      <%= link_to 'Generate shopping list',  user_recipe_shops_path(current_user.id, @recipe.id), class: 'btnOne ' %>
+    </div>
   </div>
-<% end %>
 
-<div>
-  <%= link_to 'Generate shopping list',  user_recipe_shops_path(current_user.id, @recipe.id) %>
+  <div class='more_details'>
+    <div>
+      is it public? <%= @recipe.public %>
+    </div>
+
+    <% if current_user.id == @recipe.user_id %>
+      <div>
+        <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id), class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-
- <br />
-<table>
-  <thead>
+<table class= "food_table">
+  <thead class= "head">
     <tr>
       <th>Food</th>
       <th>Quantity</th>
@@ -40,7 +49,7 @@
         <td><%= rec.quantity %></td>
         <td><%= rec.food.price %></td>
         <td><%= rec.id %></td>
-        <td><%= button_to 'Delete', user_recipe_list_path(@recipe.user_id, @recipe.id, rec.id), method: :delete %></td>
+        <td><%= button_to 'Delete', user_recipe_list_path(@recipe.user_id, @recipe.id, rec.id), method: :delete, class: "delete" %></td>
       </tr>
     <% end %>  
   </tbody>

@@ -15,6 +15,10 @@ h1 {
   display: flex;
 }
 
+.shop_title h3 {
+  background-color: #ddd;
+}
+
 .shop_title h3,
 .shop_rows h4 {
   width: 33%;
