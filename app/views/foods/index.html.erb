@@ -1,8 +1,8 @@
 <h1>Food section</h1>
 
-<%= link_to 'Add Food', new_user_food_path(@user) %>
-<table>
-  <thead>
+
+<table class= "food_table">
+  <thead class= "head">
     <tr>
       <th>Food</th>
       <th>Measurement Unit</th>
@@ -16,8 +16,12 @@
       <td><%= food.name %></td>
       <td><%= food.measurement_unit %></td>
       <td><%= food.price %></td>
-      <td><%= button_to 'Delete', user_food_path(@user, food), method: :delete %></td>
+      <td><%= button_to 'Delete', user_food_path(@user, food), method: :delete, class: "delete" %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<div class="btn_location">
+  <%= link_to 'Add Food', new_user_food_path(@user), class: "link add_food" %>
+</div>

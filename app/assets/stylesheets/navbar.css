@@ -2,8 +2,18 @@
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  background-color: #08f;
+  background-color: rgb(69, 166, 250);
+  padding: 15px;
+  position: relative;
+}
+
+.welcome {
+  color: #fff;
+  font-size: 15px;
+}
+
+.home {
+  margin-left: 15px;
 }
 
 .access {
@@ -11,4 +21,19 @@
   margin: 10px;
   font-size: 25px;
   color: #fff;
+}
+
+.access:hover {
+  color: #00008b;
+}
+
+.out_btn,
+.in {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  padding: 5px 15px 0 0;
+  right: 0;
+  top: 0;
 }

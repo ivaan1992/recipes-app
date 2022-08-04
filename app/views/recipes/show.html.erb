@@ -11,13 +11,16 @@
 </div>
 <%= @recipe.description %>
 
-<div>
-  <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id) %>
-</div>
+<% if current_user.id == @recipe.user_id %>
+  <div>
+    <%= link_to 'Add Food', new_user_recipe_list_path(@recipe.user_id, @recipe.id) %>
+  </div>
+<% end %>
 
 <div>
-  <%= link_to 'Generate shopping list',  user_recipe_shops_path(@recipe.user_id, @recipe.id) %>
+  <%= link_to 'Generate shopping list',  user_recipe_shops_path(current_user.id, @recipe.id) %>
 </div>
+
 
  <br />
 <table>
