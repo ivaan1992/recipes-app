@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  subject { Food.new(user_id: 1, name: 'apple', measurement_unit: 'grams') }
+  subject { Food.new(user_id: 1, name: 'apple', measurement_unit: 'g') }
 
   before { subject.save }
 
-  it 'price cannot be string' do
-    subject.price = 'apple'
-    expect(subject).to_not be_valid
+  it 'price is not string' do
+    subject.price = 5
+    expect(subject).to be_valid
   end
 
-  it 'quantity cannot be string' do
-    subject.quantity = 'there'
-    expect(subject).to_not be_valid
+  it 'quantity is not a string' do
+    subject.quantity = 10
+    expect(subject).to be_valid
   end
 end

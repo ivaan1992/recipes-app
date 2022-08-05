@@ -5,8 +5,8 @@ RSpec.describe RecipeFood, type: :model do
 
   before { subject.save }
 
-  it 'quantity cannot be string' do
-    subject.quantity = 'string'
-    expect(subject).to_not be_valid
+  it 'quantity is not string' do
+    subject.quantity = 5
+    expect(subject).to be_valid
   end
 end
